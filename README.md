@@ -1,15 +1,63 @@
-🧮 Scientific & Basic Calculator (Responsive UI + Theme Toggle)
-A responsive web calculator built using HTML, Tailwind CSS, and JavaScript, featuring both Basic and Scientific modes with a smooth light/dark theme toggle and keyboard support.
+# Modern Calculator Web App
 
-🔧 Features
-🧠 Dual Mode: Switch between Basic and Scientific calculators.
+![Calculator Screenshot](https://i.imgur.com/your-screenshot-url.png)
 
-🌙 Light/Dark Mode: Toggle between themes, with saved preference.
+A sleek, responsive calculator web application with both basic and scientific modes, featuring dark/light theme toggle and keyboard support.
 
-🧮 Scientific Functions: sin, cos, tan, log, ln, sqrt, power, factorial, π, e.
+## Features
 
-🎯 Responsive UI: Clean, modern interface built with Tailwind CSS.
+- 🧮 **Dual Mode Functionality**
+  - Basic calculator (arithmetic operations)
+  - Scientific calculator (trigonometric, logarithmic, factorial, etc.)
+- 🌓 **Dark/Light Mode Toggle**
+  - Persistent theme preference using localStorage
+- ⌨️ **Full Keyboard Support**
+  - Works with both keyboard and mouse input
+- 📱 **Fully Responsive Design**
+  - Works on all device sizes
+- ✨ **Modern UI**
+  - Clean interface with smooth animations
+  - Rounded buttons with hover/active states
+- 🔄 **Memory Functions**
+  - Clear (C) and backspace (⌫) operations
+  - Percentage calculations
+  - Sign toggle (±)
 
-🧠 Keyboard Input Support
+## Technologies Used
 
-💾 LocalStorage Theme Persistence# Calculator
+- HTML5
+- CSS3 (with custom dark mode implementation)
+- JavaScript (for all calculator logic)
+- [Tailwind CSS](https://tailwindcss.com/) (for utility-first styling)
+- [Remix Icon](https://remixicon.com/) (for icons)
+- localStorage (for theme persistence)
+
+## Installation & Usage
+
+No installation required! Simply open `index.html` in any modern web browser.
+
+**Basic Operations:**
+1. Click numbers or type them on your keyboard
+2. Select an operation (+, -, ×, ÷)
+3. Press = or Enter to calculate
+
+**Scientific Mode:**
+1. Switch to Scientific mode using the toggle
+2. Access advanced functions (sin, cos, tan, log, etc.)
+
+**Theme Toggle:**
+- Click the sun/moon icon in the top-right corner
+
+## Keyboard Shortcuts
+
+| Key          | Function           |
+|--------------|--------------------|
+| 0-9          | Number input       |
+| .            | Decimal point      |
+| + - * /      | Basic operations   |
+| Enter / =    | Calculate          |
+| Backspace    | Delete last digit  |
+| Escape       | Clear everything   |
+| %            | Percentage         |
+
+## Project Structure
