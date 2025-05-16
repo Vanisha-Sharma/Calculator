@@ -1,0 +1,58 @@
+:where([class^="ri-"])::before {
+  content: "\f3c2";
+}
+.calculator-btn {
+  transition: all 0.2s ease;
+}
+.calculator-btn:hover {
+  transform: translateY(-2px);
+}
+.calculator-btn:active {
+  transform: translateY(1px);
+}
+.calculator-display {
+  transition: all 0.3s ease;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+.dark .calculator-container {
+  background-color: #2d2d2d;
+}
+.dark .calculator-display {
+  background-color: #2d2d2d;
+  border-color: #3d3d3d;
+}
+.dark .current-calculation {
+  color: #ffffff;
+}
+.dark .previous-calculation {
+  color: #9ca3af;
+}
+.dark .calculator-btn.bg-white {
+  background-color: #3d3d3d;
+  color: #ffffff;
+}
+.dark .calculator-btn.bg-gray-100 {
+  background-color: #4d4d4d;
+  color: #ffffff;
+}
+.dark .calculator-btn.bg-gray-200 {
+  background-color: #5d5d5d;
+  color: #ffffff;
+}
+.dark .calculator-mode-btn {
+  color: #171717;
+}
+.dark .calculator-mode-btn.active {
+  background-color: #5c5b5b;
+}
+.dark .mode-toggle {
+  color: #0b0a0a;
+}

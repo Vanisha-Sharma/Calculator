@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4F9DE7',secondary:'#F0F4F8'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+<link href="style.css" rel="stylesheet" />
+    <script src="script.js"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center" id="body">
+<div class="flex flex-col items-center w-screen h-screen relative">
+<button id="themeToggle" class="absolute top-4 right-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-200 w-10 h-10 flex items-center justify-center mode-toggle">
+    <i class="ri-sun-line dark:ri-moon-line text-xl"></i>
+</button>
+<div class="mb-4 inline-flex bg-gray-100 p-1 rounded-full">
+<button class="calculator-mode-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white shadow-sm text-gray-800 active" data-mode="basic">Basic</button>
+<button class="calculator-mode-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 text-gray-600" data-mode="scientific">Scientific</button>
+</div>
+<div class="calculator-container bg-white rounded-2xl shadow-lg w-96 mx-auto overflow-hidden">
+<div class="calculator-display bg-white p-6 border-b border-gray-100">
+<div class="previous-calculation text-gray-400 text-right h-8 mb-4 text-xl" id="previous-calculation"></div>
+<div class="current-calculation text-right">
+<span class="text-6xl font-medium text-gray-800 dark:text-black" id="current-calculation">0</span>
+</div>
+</div>
+<div class="calculator-keypad p-6">
+<div class="scientific-keypad hidden grid grid-cols-5 gap-3 mb-3">
+<button class="calculator-btn bg-gray-100 text-gray-700 h-16 rounded-full flex items-center justify-center font-medium text-lg !rounded-button" data-scientific="sin">sin</button>
+<button class="calculator-btn bg-gray-100 text-gray-700 h-16 rounded-full flex items-center justify-center font-medium text-lg !rounded-button" data-scientific="cos">cos</button>
+<button class="calculator-btn bg-gray-100 text-gray-700 h-16 rounded-full flex items-center justify-center font-medium text-lg !rounded-button" data-scientific="tan">tan</button>
+<button class="calculator-btn bg-gray-100 text-gray-700 h-16 rounded-full flex items-center justify-center font-medium text-lg !rounded-button" data-scientific="log">log</button>
+<button class="calculator-btn bg-gray-100 text-gray-700 h-16 rounded-full flex items-center justify-center font-medium text-lg !rounded-button" data-scientific="ln">ln</button>
+<button class="calculator-btn bg-gray-100 text-gray-700 h-16 rounded-full flex items-center justify-center font-medium text-lg !rounded-button" data-scientific="pi">π</button>
+<button class="calculator-btn bg-gray-100 text-gray-700 h-16 rounded-full flex items-center justify-center font-medium text-lg !rounded-button" data-scientific="e">e</button>
+<button class="calculator-btn bg-gray-100 text-gray-700 h-16 rounded-full flex items-center justify-center font-medium text-lg !rounded-button" data-scientific="pow">x^y</button>
+<button class="calculator-btn bg-gray-100 text-gray-700 h-16 rounded-full flex items-center justify-center font-medium text-lg !rounded-button" data-scientific="sqrt">√</button>
+<button class="calculator-btn bg-gray-100 text-gray-700 h-16 rounded-full flex items-center justify-center font-medium text-lg !rounded-button" data-scientific="fact">x!</button>
+</div>
+<div class="basic-keypad grid grid-cols-4 gap-3">
+
+<button class="calculator-btn bg-gray-100 text-gray-700 h-16 rounded-full flex items-center justify-center font-medium text-xl !rounded-button" data-action="clear">C</button>
+<button class="calculator-btn bg-gray-100 text-gray-700 h-16 rounded-full flex items-center justify-center font-medium text-xl !rounded-button" data-action="delete">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-delete-back-2-line"></i>
+</div>
+</button>
+<button class="calculator-btn bg-gray-100 text-gray-700 h-16 rounded-full flex items-center justify-center font-medium text-xl !rounded-button" data-action="percent">%</button>
+<button class="calculator-btn bg-gray-200 text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-xl !rounded-button" data-operation="/">÷</button>
+
+<button class="calculator-btn bg-white text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-2xl shadow-sm !rounded-button" data-number="7">7</button>
+<button class="calculator-btn bg-white text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-2xl shadow-sm !rounded-button" data-number="8">8</button>
+<button class="calculator-btn bg-white text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-2xl shadow-sm !rounded-button" data-number="9">9</button>
+<button class="calculator-btn bg-gray-200 text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-xl !rounded-button" data-operation="*">×</button>
+
+<button class="calculator-btn bg-white text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-2xl shadow-sm !rounded-button" data-number="4">4</button>
+<button class="calculator-btn bg-white text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-2xl shadow-sm !rounded-button" data-number="5">5</button>
+<button class="calculator-btn bg-white text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-2xl shadow-sm !rounded-button" data-number="6">6</button>
+<button class="calculator-btn bg-gray-200 text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-xl !rounded-button" data-operation="-">−</button>
+
+<button class="calculator-btn bg-white text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-2xl shadow-sm !rounded-button" data-number="1">1</button>
+<button class="calculator-btn bg-white text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-2xl shadow-sm !rounded-button" data-number="2">2</button>
+<button class="calculator-btn bg-white text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-2xl shadow-sm !rounded-button" data-number="3">3</button>
+<button class="calculator-btn bg-gray-200 text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-xl !rounded-button" data-operation="+">+</button>
+
+<button class="calculator-btn bg-white text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-2xl shadow-sm !rounded-button" data-action="plusMinus">±</button>
+<button class="calculator-btn bg-white text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-2xl shadow-sm !rounded-button" data-number="0">0</button>
+<button class="calculator-btn bg-white text-gray-800 h-16 rounded-full flex items-center justify-center font-medium text-2xl shadow-sm !rounded-button" data-number=".">.</button>
+<button class="calculator-btn bg-primary text-white h-16 rounded-full flex items-center justify-center font-medium text-xl !rounded-button" data-action="calculate">=</button>
+</div>
+</div>
+</div>
+</body>
+</html>
